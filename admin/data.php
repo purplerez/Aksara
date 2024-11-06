@@ -24,6 +24,9 @@ if(isset($_POST['btnInputBuku'])){
 
     if($validasi == 0 ){
         echo "data sudah lengkap siap di inputkan";
+        $result = inputBuku($data, $koneksi);
+        if($result) header("location:input_buku.php?status=1");
+        else header("location:input_buku.php?errno=1");
     }
     else {
         echo "data $validasi kurang";

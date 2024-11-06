@@ -23,7 +23,7 @@
                     <div class="mb-3">
                         <label for="nmpengarang" class="form-label">Pengarang</label>
                         <select class="form-select" name="pengarang">
-                                <option selected>--Pengarang--</option>
+                                <option selected value="0" >--Pengarang--</option>
                                 <option value="1">Andrea Hirata</option>
                                 <option value="2">Dewi Lestari</option>
                                 <option value="3">Maudy Ayunda</option>
@@ -32,7 +32,7 @@
                     <div class="mb-3">
                         <label for="nmpenerbit" class="form-label">Penerbit</label>
                         <select class="form-select" name="penerbit">
-                                <option selected>--Pilih Penerbit--</option>
+                                <option selected value="0">--Pilih Penerbit--</option>
                                 <option value="1">Bentang</option>
                                 <option value="2">Gramedia</option>
                                 <option value="3">Informatika</option>
@@ -41,7 +41,7 @@
                     <div class="mb-3">
                         <label for="nmpenerbit" class="form-label">Tahun Terbit</label>
                         <select class="form-select" name="tahunTerbit">
-                                <option selected>--Pilih Tahun--</option>
+                                <option selected value="0">--Pilih Tahun--</option>
                                 <?php 
                                     for($i = 1900; $i <= date('Y'); $i++){
                                 ?>
@@ -52,7 +52,7 @@
                     <div class="mb-3">
                         <label for="nmpenerbit" class="form-label">Kategori / Genre</label>
                         <select class="form-select" name="genre">
-                                <option selected>--Pilih Genre--</option>
+                                <option selected value="0">--Pilih Genre--</option>
                                 <option value="1">Romance</option>
                                 <option value="2">Thriller</option>
                                 <option value="3">Horror</option>
