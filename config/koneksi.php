@@ -1,4 +1,5 @@
 <?php 
+    $rootDir = $_SERVER['DOCUMENT_ROOT'].'/mlaku/';
     $server = "localhost"; // nama server
     $user = "root";
     $pass = '';

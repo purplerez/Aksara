@@ -1,3 +1,7 @@
+<?php 
+    require "../config/config.php";
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,7 +15,7 @@
         <div class="row">
             <div class="col-6">
             <h2>Input Data Buku </h2>
-                <form method="post">
+                <form method="post" action="">
                     <div class="mb-3">
                         <label for="namaBuku" class="form-label">Judul Buku </label>
                         <input type="text" class="form-control" name="judul" >
@@ -47,7 +51,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="nmpenerbit" class="form-label">Kategori / Genre</label>
-                        <select class="form-select" name="penerbit">
+                        <select class="form-select" name="genre">
                                 <option selected>--Pilih Genre--</option>
                                 <option value="1">Romance</option>
                                 <option value="2">Thriller</option>
@@ -57,12 +61,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="sinopsis">Sinopsis</label>
-                        <textarea class="form-control" placeholder="Leave a comment here" id="" for="sinopsis"></textarea>
+                        <textarea name="sinopsis" class="form-control" placeholder="Leave a comment here" id="" for="sinopsis"></textarea>
                     </div>
     
 
                     <div class="mb-3">
-                        <input type="submit" value="Input Data Buku" class="btn btn-primary">
+                        <input type="submit" value="Input Data Buku" class="btn btn-primary" name="btnInputBuku">
                     </div>
 
 
