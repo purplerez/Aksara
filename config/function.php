@@ -37,6 +37,33 @@ function inputBuku($data, $koneksi){
     return true;  
 }
 
+function inputBukuGambar($data, $koneksi){
+    $judul = $data['judul'];
+    $pengarang = $data['pengarang'];
+    $penerbit = $data['penerbit'];
+    $tahun = $data['tahun'];
+    $genre = $data['genre'];
+    $sinopsis = $data['sinopsis'];
+    $gambar = $data['gambar'];
+    $tanggal = time();
+
+    $sql = "INSERT INTO buku_gambar (judul, pengarang, penerbit, tahun, kategori, sinopsis, gambar, tanggal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($koneksi, $sql);
+    if($stmt === false) 
+    {
+        return "failed";
+    }
+
+    mysqli_stmt_bind_param($stmt, 'siiiissi', $judul, $pengarang, $penerbit, $tahun, $genre, $sinopsis, $gambar, $tanggal);
+    $result = mysqli_stmt_execute($stmt);
+
+    if(!$result)
+        return false;
+    
+    mysqli_stmt_close($stmt);
+    return true;  
+}
+
 
 
 ?>
