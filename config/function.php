@@ -64,6 +64,18 @@ function inputBukuGambar($data, $koneksi){
     return true;  
 }
 
+// function untuk menampilkan data buku
+function viewBuku($koneksi){
+    $sql = "SELECT buku.judul, kategori.nama as kategori, pengarang.nama as author, penerbit.nama as publish FROM buku 
+                        LEFT JOIN pengarang ON buku.pengarang = pengarang.id
+                        LEFT JOIN penerbit ON buku.penerbit = penerbit.id
+                        LEFT JOIN kategori ON buku.kategori = kategori.id
+                        ORDER BY buku.id DESC";
 
+    $stmt = mysqli_query($koneksi, $sql);
+
+    if(mysqli_num_rows($stmt) > 0) return mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+    else return false; 
+}
 
 ?>
