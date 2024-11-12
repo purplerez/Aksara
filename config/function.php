@@ -78,4 +78,28 @@ function viewBuku($koneksi){
     else return false; 
 }
 
+function viewPengarang($koneksi){
+    $sql = "SELECT * FROM pengarang";
+    $stmt = mysqli_query($koneksi, $sql);
+
+    if(mysqli_num_rows($stmt) > 0 ) return mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+    else return false;
+}
+
+function viewPenerbit($koneksi){
+    $sql = "SELECT * FROM penerbit";
+    $stmt = mysqli_query($koneksi, $sql);
+
+    if(mysqli_num_rows($stmt) > 0 ) return mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+    else return false;
+}
+
+function viewKategori($koneksi){
+    $sql = "SELECT * FROM kategori";
+    $stmt = mysqli_query($koneksi, $sql);
+
+    if(mysqli_num_rows($stmt) > 0 ) return mysqli_fetch_all($stmt, MYSQLI_ASSOC);
+    else return false;
+}
+
 ?>

@@ -24,18 +24,38 @@
                         <label for="nmpengarang" class="form-label">Pengarang</label>
                         <select class="form-select" name="pengarang">
                                 <option selected value="0" >--Pengarang--</option>
-                                <option value="1">Andrea Hirata</option>
-                                <option value="2">Dewi Lestari</option>
-                                <option value="3">Maudy Ayunda</option>
+                                <?php 
+                                    $pengarang = viewPengarang($koneksi);
+
+                                    if($pengarang != false) {
+                                        foreach($pengarang as $recA) {
+                                ?>
+
+                                <option value="<?= $recA['id'] ?>"><?= $recA['nama'] ?></option>
+
+                                <?php 
+                                        }
+                                    } 
+                                ?>
+                               
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="nmpenerbit" class="form-label">Penerbit</label>
                         <select class="form-select" name="penerbit">
                                 <option selected value="0">--Pilih Penerbit--</option>
-                                <option value="1">Bentang</option>
-                                <option value="2">Gramedia</option>
-                                <option value="3">Informatika</option>
+                                <?php 
+                                    $penerbit = viewPenerbit($koneksi);
+
+                                    if($penerbit != false){
+                                        foreach($penerbit as $recP) {
+                                ?>
+                                <option value="<?= $recP['id'] ?>"><?= $recP['nama'] ?></option>
+
+                                <?php  
+                                        }
+                                    } 
+                                ?>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -53,10 +73,19 @@
                         <label for="nmpenerbit" class="form-label">Kategori / Genre</label>
                         <select class="form-select" name="genre">
                                 <option selected value="0">--Pilih Genre--</option>
-                                <option value="1">Romance</option>
-                                <option value="2">Thriller</option>
-                                <option value="3">Horror</option>
-                                <option value="4">BioGraphy</option>
+                                <?php 
+                                    $kategori = viewKategori($koneksi);
+
+                                    if($kategori != false){
+                                        foreach($kategori as $recK) {
+                                ?>
+                                <option value="<?= $recK['id'] ?>"><?= $recK['nama'] ?></option>
+
+                                <?php  
+                                        }
+                                    } 
+                                ?>
+                               
                         </select>
                     </div>
                     <div class="mb-3">
