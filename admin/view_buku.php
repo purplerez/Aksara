@@ -42,9 +42,9 @@ require "../config/config.php";
                         <td><?= $data['author'] ?></td>
                         <td><?= $data['publish'] ?></td>
                         <td><?= $data['kategori'] ?></td>
-                        <td>gambar</td>
+                        <td><a href="input_gambar.php?gb=<?= $data['idbuku'] ?>">Gambar</a></td>
                         <td>edit</td>
-                        <td>delete</td>
+                        <td><a href="?del=<?= $data['idbuku'] ?>"> delete</a></td>
                     </tr>
                     <?php 
                        $no ++;

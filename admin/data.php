@@ -76,5 +76,52 @@ else if(isset($_POST['btnInputBukuGambar'])){
         echo "data $validasi kurang";
     }
 }
+else if(isset($_GET['del'])){
+    $id = $_GET['del'] ?? null;
+
+    if($id === null || !ctype_digit($id)){
+        header("location:view_buku.php?errno=3");
+    }
+    else {
+        // function delete
+        $result = delBuku($koneksi, $id);
+        if($result) 
+            header("location:view_buku.php?success=1");
+        else 
+            header("location:view_buku.php?errno=5");
+    }
+}
+else if(isset($_POST['btnUploads'])){
+    $gambar = basename($_FILES['gambar']['name']);
+    $id = $_POST['idBuku'];
+
+    $data = [
+        'gambar' => $gambar,
+        'id' => $id
+    ];
+    var_dump($data);
+   
+    $validasi = validasiData($data);
+
+    if($validasi === 0)
+    {
+        $result = inputGambar($koneksi, $data);
+        if ($result) {
+                $folderTujuan = $rootDir."upload";
+                $upload = tambahGambar($folderTujuan, $_FILES['gambar']);
+                if($upload)
+                {
+                    header("location:input_gambar.php?gb=$id&success=7");
+                }
+                else 
+                header("location:input_gambar.php?gb=$id&errno=7");
+        }
+        else header("location:input_gambar.php?gb=$id&errno=6");
+    }
+    else {
+        header("location:input_gambar.php?errno=1");
+    }
+    
+}
 
 ?>
